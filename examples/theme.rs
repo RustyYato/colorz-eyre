@@ -1,12 +1,13 @@
-use color_eyre::{config::Theme, eyre::Report, owo_colors::style, Section};
+use colorz::ansi;
+use colorz_eyre::{colorz::Style, config::Theme, eyre::Report, Section};
 
 /// To experiment with theme values, edit `theme()` below and execute `cargo run --example theme`
 fn theme() -> Theme {
     Theme::dark()
         // ^ use `new` to derive from a blank theme, or `light` to derive from a light theme.
         // Now configure your theme (see the docs for all options):
-        .line_number(style().blue())
-        .help_info_suggestion(style().red())
+        .line_number(Style::new().fg(ansi::Blue).into_runtime_style())
+        .help_info_suggestion(Style::new().fg(ansi::Red).into_runtime_style())
 }
 
 #[derive(Debug, thiserror::Error)]
@@ -54,8 +55,8 @@ fn setup() {
             .init();
     }
 
-    color_eyre::config::HookBuilder::new()
+    colorz_eyre::config::HookBuilder::new()
         .theme(theme())
         .install()
-        .expect("Failed to install `color_eyre`");
+        .expect("Failed to install `colorz_eyre`");
 }

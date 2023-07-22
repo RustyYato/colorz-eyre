@@ -1,4 +1,4 @@
-use color_eyre::{eyre::Report, eyre::WrapErr, Section};
+use colorz_eyre::{eyre::Report, eyre::WrapErr, Section};
 use tracing::{info, instrument};
 
 #[instrument]
@@ -7,7 +7,7 @@ fn main() -> Result<(), Report> {
     #[cfg(feature = "capture-spantrace")]
     install_tracing();
 
-    color_eyre::config::HookBuilder::default()
+    colorz_eyre::config::HookBuilder::default()
         .add_frame_filter(Box::new(|frames| {
             let filters = &["custom_filter::main"];
 

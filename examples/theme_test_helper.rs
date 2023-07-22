@@ -4,7 +4,7 @@
 
 //! See "tests/theme.rs" for more information.
 
-use color_eyre::{eyre::Report, Section};
+use colorz_eyre::{eyre::Report, Section};
 
 #[rustfmt::skip]
 #[derive(Debug, thiserror::Error)]
@@ -57,5 +57,5 @@ fn setup() {
             .init();
     }
 
-    color_eyre::install().expect("Failed to install `color_eyre`");
+    colorz_eyre::install().expect("Failed to install `colorz_eyre`");
 }

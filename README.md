@@ -16,7 +16,7 @@ formatted error reports for all kinds of errors.
 
 ## TLDR
 
-`color_eyre` helps you build error reports that look like this:
+`colorz_eyre` helps you build error reports that look like this:
 
 ![custom section example](https://raw.githubusercontent.com/yaahc/color-eyre/master/pictures/custom_section.png)
 
@@ -32,10 +32,10 @@ color-eyre = "0.6"
 And install the panic and error report handlers:
 
 ```rust
-use color_eyre::eyre::Result;
+use colorz_eyre::eyre::Result;
 
 fn main() -> Result<()> {
-    color_eyre::install()?;
+    colorz_eyre::install()?;
 
     // ...
     # Ok(())
@@ -130,7 +130,7 @@ to contain `stderr` and `stdout` from a failed command, taken from
 [`examples/custom_section.rs`]:
 
 ```rust
-use color_eyre::{eyre::eyre, SectionExt, Section, eyre::Report};
+use colorz_eyre::{eyre::eyre, SectionExt, Section, eyre::Report};
 use std::process::Command;
 use tracing::instrument;
 
@@ -206,10 +206,10 @@ For an example of how to setup custom filters, check out [`examples/custom_filte
 [`backtrace::Backtrace`]: https://docs.rs/backtrace/*/backtrace/struct.Backtrace.html
 [`tracing_error::SpanTrace`]: https://docs.rs/tracing-error/*/tracing_error/struct.SpanTrace.html
 [`color-spantrace`]: https://github.com/yaahc/color-spantrace
-[`Section`]: https://docs.rs/color-eyre/*/color_eyre/section/trait.Section.html
+[`Section`]: https://docs.rs/color-eyre/*/colorz_eyre/section/trait.Section.html
 [`eyre::Report`]: https://docs.rs/eyre/*/eyre/struct.Report.html
 [`eyre::Result`]: https://docs.rs/eyre/*/eyre/type.Result.html
-[`Handler`]: https://docs.rs/color-eyre/*/color_eyre/struct.Handler.html
+[`Handler`]: https://docs.rs/color-eyre/*/colorz_eyre/struct.Handler.html
 [`examples/usage.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/usage.rs
 [`examples/custom_filter.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/custom_filter.rs
 [`examples/custom_section.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/custom_section.rs

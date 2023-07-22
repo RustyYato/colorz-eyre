@@ -5,6 +5,7 @@ use crate::{
     Handler,
 };
 use backtrace::Backtrace;
+use colorz::Colorize;
 use indenter::{indented, Format};
 use std::fmt::Write;
 #[cfg(feature = "capture-spantrace")]
@@ -63,7 +64,7 @@ impl eyre::EyreHandler for Handler {
 
         for (n, error) in errors() {
             writeln!(f)?;
-            write!(indented(f).ind(n), "{}", self.theme.error.style(error))?;
+            write!(indented(f).ind(n), "{}", error.style_with(self.theme.error))?;
         }
 
         let mut separated = f.header("\n\n");

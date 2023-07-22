@@ -3,7 +3,7 @@
 //!
 //! ## TLDR
 //!
-//! `color_eyre` helps you build error reports that look like this:
+//! `colorz_eyre` helps you build error reports that look like this:
 //!
 //! <pre><span style="color: #06989A"><b>color-eyre</b></span> on <span style="color: #75507B"><b> hooked</b></span> <span style="color: #CC0000"><b>[$!] </b></span>is <span style="color: #FF8700"><b>📦 v0.5.0</b></span> via <span style="color: #CC0000"><b>🦀 v1.44.0</b></span>
 //! <span style="color: #4E9A06"><b>❯</b></span> cargo run --example custom_section
@@ -39,10 +39,10 @@
 //! And install the panic and error report handlers:
 //!
 //! ```rust
-//! use color_eyre::eyre::Result;
+//! use colorz_eyre::eyre::Result;
 //!
 //! fn main() -> Result<()> {
-//!     color_eyre::install()?;
+//!     colorz_eyre::install()?;
 //!
 //!     // ...
 //!     # Ok(())
@@ -212,7 +212,7 @@
 //!         42 │         .suggestion(&quot;try using a file that exists next time&quot;)
 //!    8: <span style="color: #F15D22">usage::main</span><span style="color: #88807C">::hbe443b50eac38236</span>
 //!       at <span style="color: #75507B">/home/jlusby/git/yaahc/color-eyre/examples/usage.rs</span>:<span style="color: #75507B">11</span>
-//!          9 │     color_eyre::install()?;
+//!          9 │     colorz_eyre::install()?;
 //!         10 │
 //!   <span style="color: #D3D7CF"><b>      11 &gt;     Ok(read_config()?)</b></span>
 //!         12 │ }
@@ -230,7 +230,7 @@
 //! [`examples/custom_section.rs`]:
 //!
 //! ```rust
-//! use color_eyre::{eyre::eyre, SectionExt, Section, eyre::Report};
+//! use colorz_eyre::{eyre::eyre, SectionExt, Section, eyre::Report};
 //! use std::process::Command;
 //! use tracing::instrument;
 //!
@@ -326,10 +326,10 @@
 //! [`backtrace::Backtrace`]: https://docs.rs/backtrace/*/backtrace/struct.Backtrace.html
 //! [`tracing_error::SpanTrace`]: https://docs.rs/tracing-error/*/tracing_error/struct.SpanTrace.html
 //! [`color-spantrace`]: https://github.com/yaahc/color-spantrace
-//! [`Section`]: https://docs.rs/color-eyre/*/color_eyre/trait.Section.html
+//! [`Section`]: https://docs.rs/color-eyre/*/colorz_eyre/trait.Section.html
 //! [`eyre::Report`]: https://docs.rs/eyre/*/eyre/struct.Report.html
 //! [`eyre::Result`]: https://docs.rs/eyre/*/eyre/type.Result.html
-//! [`Handler`]: https://docs.rs/color-eyre/*/color_eyre/struct.Handler.html
+//! [`Handler`]: https://docs.rs/color-eyre/*/colorz_eyre/struct.Handler.html
 //! [`examples/usage.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/usage.rs
 //! [`examples/custom_filter.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/custom_filter.rs
 //! [`examples/custom_section.rs`]: https://github.com/yaahc/color-eyre/blob/master/examples/custom_section.rs
@@ -342,7 +342,6 @@
     rust_2018_idioms,
     unreachable_pub,
     bad_style,
-    const_err,
     dead_code,
     improper_ctypes,
     non_shorthand_field_patterns,
@@ -363,12 +362,12 @@
 use std::sync::Arc;
 
 use backtrace::Backtrace;
+pub use colorz;
 pub use eyre;
 #[doc(hidden)]
 pub use eyre::Report;
 #[doc(hidden)]
 pub use eyre::Result;
-pub use owo_colors;
 use section::help::HelpInfo;
 #[doc(hidden)]
 pub use section::Section as Help;
@@ -391,12 +390,12 @@ mod writers;
 /// # Details
 ///
 /// This type is not intended to be used directly, prefer using it via the
-/// [`color_eyre::Report`] and [`color_eyre::Result`] type aliases.
+/// [`colorz_eyre::Report`] and [`colorz_eyre::Result`] type aliases.
 ///
 /// [`eyre::Report`]: https://docs.rs/eyre/*/eyre/struct.Report.html
 /// [`tracing-error`]: https://docs.rs/tracing-error
-/// [`color_eyre::Report`]: type.Report.html
-/// [`color_eyre::Result`]: type.Result.html
+/// [`colorz_eyre::Report`]: type.Report.html
+/// [`colorz_eyre::Result`]: type.Result.html
 pub struct Handler {
     filters: Arc<[Box<config::FilterCallback>]>,
     backtrace: Option<Backtrace>,
@@ -449,10 +448,10 @@ pub enum ErrorKind<'a> {
 /// # Examples
 ///
 /// ```rust
-/// use color_eyre::eyre::Result;
+/// use colorz_eyre::eyre::Result;
 ///
 /// fn main() -> Result<()> {
-///     color_eyre::install()?;
+///     colorz_eyre::install()?;
 ///
 ///     // ...
 ///     # Ok(())

@@ -164,7 +164,7 @@ impl fmt::Display for FormattedSpanTrace<'_> {
             write!(
                 indented(f).with_format(Format::Uniform { indentation: "  " }),
                 "{}",
-                color_spantrace::colorize(self.0)
+                colorz_spantrace::colorize(self.0)
             )?;
         }
 

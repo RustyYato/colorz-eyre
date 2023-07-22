@@ -1,4 +1,4 @@
-use color_eyre::{
+use colorz_eyre::{
     eyre::Report,
     eyre::{eyre, WrapErr},
     Section, SectionExt,
@@ -32,7 +32,7 @@ impl Output for Command {
 fn main() -> Result<(), Report> {
     #[cfg(feature = "capture-spantrace")]
     install_tracing();
-    color_eyre::install()?;
+    colorz_eyre::install()?;
 
     read_config().map(drop)
 }

@@ -1,8 +1,8 @@
-use color_eyre::{eyre::eyre, eyre::Report, Section};
+use colorz_eyre::{eyre::eyre, eyre::Report, Section};
 use thiserror::Error;
 
 fn main() -> Result<(), Report> {
-    color_eyre::install()?;
+    colorz_eyre::install()?;
     let errors = get_errors();
     join_errors(errors)
 }
@@ -12,6 +12,7 @@ fn join_errors(results: Vec<Result<(), SourceError>>) -> Result<(), Report> {
         return Ok(());
     }
 
+    #[allow(clippy::manual_try_fold)]
     results
         .into_iter()
         .filter(Result::is_err)

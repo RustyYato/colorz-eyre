@@ -1,9 +1,9 @@
-use color_eyre::eyre;
+use colorz_eyre::eyre;
 use eyre::eyre;
 
 #[test]
 fn enabled() {
-    color_eyre::config::HookBuilder::default()
+    colorz_eyre::config::HookBuilder::default()
         .display_env_section(true)
         .install()
         .unwrap();

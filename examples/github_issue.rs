@@ -1,5 +1,5 @@
 #![allow(dead_code, unused_imports)]
-use color_eyre::eyre;
+use colorz_eyre::eyre;
 use eyre::{Report, Result};
 use tracing::instrument;
 
@@ -9,12 +9,12 @@ fn main() -> Result<(), Report> {
     #[cfg(feature = "capture-spantrace")]
     install_tracing();
 
-    color_eyre::config::HookBuilder::default()
+    colorz_eyre::config::HookBuilder::default()
         .issue_url(concat!(env!("CARGO_PKG_REPOSITORY"), "/issues/new"))
         .add_issue_metadata("version", env!("CARGO_PKG_VERSION"))
         .issue_filter(|kind| match kind {
-            color_eyre::ErrorKind::NonRecoverable(_) => false,
-            color_eyre::ErrorKind::Recoverable(_) => true,
+            colorz_eyre::ErrorKind::NonRecoverable(_) => false,
+            colorz_eyre::ErrorKind::Recoverable(_) => true,
         })
         .install()?;
 

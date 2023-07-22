@@ -1,10 +1,10 @@
 #[cfg(target_arch = "wasm32")]
 #[wasm_bindgen_test::wasm_bindgen_test]
-pub fn color_eyre_simple() {
-    use color_eyre::eyre::WrapErr;
-    use color_eyre::*;
+pub fn colorz_eyre_simple() {
+    use colorz_eyre::eyre::WrapErr;
+    use colorz_eyre::*;
 
-    install().expect("Failed to install color_eyre");
+    install().expect("Failed to install colorz_eyre");
     let err_str = format!(
         "{:?}",
         Err::<(), Report>(eyre::eyre!("Base Error"))

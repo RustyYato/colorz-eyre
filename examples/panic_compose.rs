@@ -1,4 +1,4 @@
-use color_eyre::eyre::Report;
+use colorz_eyre::eyre::Report;
 use tracing::instrument;
 
 #[instrument]
@@ -6,7 +6,7 @@ fn main() -> Result<(), Report> {
     #[cfg(feature = "capture-spantrace")]
     install_tracing();
 
-    let (panic_hook, eyre_hook) = color_eyre::config::HookBuilder::default().into_hooks();
+    let (panic_hook, eyre_hook) = colorz_eyre::config::HookBuilder::default().into_hooks();
 
     eyre_hook.install()?;
 
